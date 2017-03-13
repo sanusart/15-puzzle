@@ -6,6 +6,10 @@ The 15-puzzle (also called Gem Puzzle, Boss Puzzle, Game of Fifteen, Mystic Squa
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
+## Demo
+
+[At heroku &raquo;](https://stark-brushlands-28675.herokuapp.com/)
+
 ## Available Scripts
 
 In the project directory, you can run:
