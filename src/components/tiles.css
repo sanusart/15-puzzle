@@ -1,0 +1,85 @@
+.text-danger {
+  color: #f44336; }
+
+.text-success {
+  color: #4CAF50; }
+
+.text-warn {
+  color: #FFC107; }
+
+.text-info {
+  color: #2196F3; }
+
+.tile,
+.tile-empty {
+  background: #555;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  box-shadow: 0 0 2px #000;
+  box-sizing: border-box;
+  display: flex;
+  font-size: 26px;
+  justify-content: space-around;
+  text-align: center; }
+
+.tile > span {
+  color: tomato;
+  text-shadow: 0 1px 1px #fff;
+  font-size: 2em; }
+
+.tile-empty {
+  box-shadow: 1px 1px 22px #000 inset;
+  opacity: .5;
+  transition: all 1s ease; }
+
+.tile-empty:hover {
+  box-shadow: 1px 1px 22px #000 inset; }
+
+.tile {
+  background-image: url(/images/bg.jpg);
+  background-size: 400% 400%; }
+
+.tile-1 {
+  background-position: 0 0; }
+
+.tile-2 {
+  background-position: 33% 0; }
+
+.tile-3 {
+  background-position: 66% 0; }
+
+.tile-4 {
+  background-position: 100% 0; }
+
+.tile-5 {
+  background-position: 0 33%; }
+
+.tile-6 {
+  background-position: 33% 33%; }
+
+.tile-7 {
+  background-position: 66% 33%; }
+
+.tile-8 {
+  background-position: 100% 33%; }
+
+.tile-9 {
+  background-position: 0 66%; }
+
+.tile-10 {
+  background-position: 33% 66%; }
+
+.tile-11 {
+  background-position: 66% 66%; }
+
+.tile-12 {
+  background-position: 100% 66%; }
+
+.tile-13 {
+  background-position: 0 100%; }
+
+.tile-14 {
+  background-position: 33% 100%; }
+
+.tile-15 {
+  background-position: 66% 100%; }

@@ -1,0 +1,33 @@
+@import "../vars.scss";
+
+.hall-of-fame {
+  width: 50%;
+  min-width: 320px;
+  margin: 0 auto;
+  color: $text-base;
+  & table {
+	border-collapse: collapse;
+	& tr {
+	  & td, th {
+		border-bottom: 1px dotted $text-base;
+		text-align: left;
+		padding: 10px 0;
+		line-height: 31px;
+		strong {
+		  color: $color-secondary;
+		}
+	  }
+	  &:last-child td {
+		border: none;
+	  }
+	}
+  }
+  .label {
+	background: tomato;
+	padding: 5px 10px;
+	font-family: Monaco, monospace;
+	color: #fff;
+	border-radius: 3px;
+	font-weight: 700;
+  }
+}

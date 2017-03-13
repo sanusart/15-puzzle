@@ -1,0 +1,121 @@
+@import 'vars.scss';
+
+body,
+html {
+  background: $bg-color;
+}
+
+body {
+  font-family: 'Helvetica Neue', 'Trebuchet MS', sans-serif;
+  color: $text-base;
+  & h1,h2,h3,h4,h5,h6 {
+	font-weight: 300;
+  }
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.hr-top {
+  border-top: 1px dotted $text-base;
+  padding: 10px 0 0 0;
+}
+
+.puzzle {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  position: relative;
+}
+
+.running-props {
+  margin: 0 0 20px 0;
+}
+
+.btn-start {
+  border: 1px solid $color-secondary;
+  color: $color-secondary;
+  padding: 5px 10px;
+  margin: 20px 0 10px 0;
+  line-height: 21px;
+  height: 21px;
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  &.fill,
+  &:hover {
+	background: $color-secondary;
+	color:#fff;
+  }
+}
+
+.won {
+  border: 1px solid #fff;
+  display: block;
+  color: #555;
+  padding: 20px;
+  text-align: center;
+  border-radius: 3px;
+  background: #fff;
+  box-shadow: 0 0 50px #555;
+  position: fixed;
+  width: 50%;
+  z-index: 6;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  input[type="text"] {
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	line-height: 31px;
+	margin: 10px;
+	padding: 0 5px;
+	font-size: 20px;
+	width:80%;
+  }
+  a {
+	@extend .btn-start;
+	margin:0;
+  &.close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+  }
+  }
+}
+
+.fadeIn-enter {
+  opacity: 0.01;
+  width: 0;
+}
+
+.fadeIn-enter.fadeIn-enter-active {
+  opacity: 1;
+  width: 100px;
+  transition: 700ms;
+}
+
+.fadeIn-leave {
+  opacity: 1;
+  width: 100px;
+}
+
+.fadeIn-leave.fadeIn-leave-active {
+  opacity: 0.01;
+  width: 0;
+  transition: 700ms;
+}
+
+@import 'components/tiles.scss';

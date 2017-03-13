@@ -1,0 +1,25 @@
+$text-base: #555;
+$bg-color: #d2d2f7;
+$color-primary: #ccc;
+$color-secondary: tomato;
+
+$color-success: #4CAF50;
+$color-danger:#f44336;
+$color-warn: #FFC107;
+$color-info:#2196F3;
+
+.text-danger {
+  color: $color-danger;
+}
+
+.text-success {
+  color: $color-success;
+}
+
+.text-warn {
+  color: $color-warn;
+}
+
+.text-info {
+  color: $color-info;
+}
