@@ -2,7 +2,6 @@
   "name": "15-Puzzle",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://sanusart.github.io/15-puzzle",
   "devDependencies": {
     "enzyme": "^2.7.1",
     "node-sass": "^4.5.0",
