@@ -38,5 +38,4 @@ main.js.map
 npm-debug.log
 uilog.txt
 
-### VisualStudioCode ###
-.vscode
+build
