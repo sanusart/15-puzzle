@@ -8,7 +8,8 @@ cache:
   - packages/create-react-app/node_modules
   - packages/react-scripts/node_modules
 install: true
-script:
+install:
+  - npm install -g create-react-app
   - npm install
 script:
   - npm test
