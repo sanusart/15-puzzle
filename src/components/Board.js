@@ -15,7 +15,8 @@ export default class Board extends Component {
       moves: 0,
       countInterval: '',
       boardWidth: 320,
-      validation: ''
+      validation: '',
+      randomizer: 50
 
     };
     this.keyPressHandler = this.keyPressHandler.bind(this);
@@ -149,7 +150,7 @@ export default class Board extends Component {
       let rand = Math.floor(Math.random() * arr.length);
       let randomFunction = arr[rand];
       randomFunction();
-      if (i >= 2) {
+      if (i >= (this.props.location.query.easy ? 3 : this.state.randomizer)) {
         clearInterval(shuffler);
         this.props.actions.gameStart();
       }
@@ -273,8 +274,9 @@ export default class Board extends Component {
         </div>
 
         {this.props.puzzle.gameInProgress ?
-          <div className="running-props">Made {this.state.moves} moves in: {this.state.time} secs.</div> :
-          this.props.puzzle.gameWon ? this.winModal() : null}
+          <div className="running-props">Made {this.state.moves} moves in: {this.state.time} secs.</div>
+          : this.props.puzzle.gameWon ? this.winModal()
+            : <div className="running-props">Hit start and move with arrows <key>&larr;</key><key>&uarr;</key><key>&darr;</key><key>&rarr;</key></div>}
 
         <ReactTouchEvents onSwipe={ this.handleSwipe.bind(this) }>
           <div className="board" style={{width: `${this.props.puzzle.boardWidth}px` || '320px'}}>

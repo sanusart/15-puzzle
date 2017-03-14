@@ -6,7 +6,7 @@ The 15-puzzle (also called Gem Puzzle, Boss Puzzle, Game of Fifteen, Mystic Squa
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-**NOTE!!!** for demo purposes, the app only scrambles 3 tiles (in order to get to solving faster). See [randomize()](https://github.com/sanusart/15-puzzle/blob/master/src/components/Board.js#L152) for increasing and info.
+**NOTE!!!** for easy solving - append `/?easy=true` to URL (_e.g. http://localhost:3000/?easy=true_)
 
 ## Demo
 
