@@ -2,6 +2,7 @@ import pkg from '../../package.json';
 import * as ACTION from '../actions/puzzle';
 
 const initialState = {
+  loading: false,
   app: {
     name: pkg.name,
     vesion: pkg.version
@@ -10,7 +11,8 @@ const initialState = {
   gameTileNumbers: false,
   gameInProgress: false,
   hallOfFame: [],
-  boardWidth: 320
+  boardWidth: 320,
+  background: '/images/bg.jpg'
 };
 
 export default function puzzleReducer(state = initialState, action) {
@@ -18,6 +20,12 @@ export default function puzzleReducer(state = initialState, action) {
   const prevState = state;
 
   switch (action.type) {
+
+    case ACTION.LOADING: {
+      prevState.loading = action.loading;
+      return Object.assign({}, prevState);
+    }
+
     case ACTION.GAME_START: {
       prevState.gameInProgress = true;
       return Object.assign({}, prevState);
@@ -44,7 +52,7 @@ export default function puzzleReducer(state = initialState, action) {
         moves: action.args.moves
       };
       prevState.hallOfFame.push(newUser);
-      window.localStorage['hallOfFame'] = JSON.stringify(prevState.hallOfFame);
+      window.localStorage.setItem('hallOfFame',JSON.stringify(prevState.hallOfFame));
       prevState.hallOfFame = JSON.parse(window.localStorage.getItem('hallOfFame'));
       prevState.gameInProgress = false;
       prevState.gameWon = false;
@@ -52,7 +60,7 @@ export default function puzzleReducer(state = initialState, action) {
     }
 
     case ACTION.SET_BOARD_SIZE: {
-      prevState.boardWidth = action.size;
+      prevState.boardWidth = +action.size;
       return Object.assign({}, prevState);
     }
 
@@ -60,6 +68,11 @@ export default function puzzleReducer(state = initialState, action) {
       if(prevState.hallOfFame.length === 0 && window.localStorage.getItem('hallOfFame')) {
         prevState.hallOfFame = JSON.parse(window.localStorage.getItem('hallOfFame'));
       }
+      return Object.assign({}, prevState);
+    }
+
+    case ACTION.CHANGE_BACKGROUND_RESULT: {
+      prevState.background = action.bg;
       return Object.assign({}, prevState);
     }
 

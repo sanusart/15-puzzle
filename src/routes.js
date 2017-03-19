@@ -2,9 +2,9 @@ import React from 'react';
 import {Router, Route} from 'react-router';
 
 import Puzzle from './components/Puzzle';
-import Board from './components/Board';
+import Board from './components/board/Board';
 import NotFound from './components/NotFound';
-import HallOfFame from './components/hallOfFame';
+import HallOfFame from './components/hall-of-fame/hallOfFame';
 
 const Routes = (props) => (
   <Router {...props}>

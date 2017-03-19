@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {shallow} from 'enzyme';
-import Tile from '../src/components/Tile';
+import Tile from '../src/components/board/Tile';
 import props from '../__mocks__/props';
 
 function setup() {

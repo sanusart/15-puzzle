@@ -43,79 +43,43 @@ body {
   margin: 0 0 20px 0;
 }
 
-.btn-start {
-  border: 1px solid $color-secondary;
-  color: $color-secondary;
-  padding: 5px 10px;
-  margin: 20px 0 10px 0;
-  line-height: 21px;
-  height: 21px;
-  border-radius: 3px;
-  cursor: pointer;
-  display: inline-block;
-  text-decoration: none;
-  &.fill,
-  &:hover {
-	background: $color-secondary;
-	color:#fff;
-  }
-}
-
-.won {
-  border: 1px solid #fff;
-  display: block;
-  color: #555;
-  padding: 20px;
-  text-align: center;
-  border-radius: 3px;
-  background: #fff;
-  box-shadow: 0 0 50px #555;
-  position: fixed;
-  width: 50%;
-  z-index: 6;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  input[type="text"] {
-	border: 1px solid #ccc;
-	border-radius: 3px;
-	line-height: 31px;
-	margin: 10px;
-	padding: 0 5px;
-	font-size: 20px;
-	width:80%;
-  }
-  a {
-	@extend .btn-start;
-	margin:0;
-  &.close {
-	position: absolute;
-	top: 10px;
-	right: 10px;
-  }
-  }
-}
-
 .fadeIn-enter {
   opacity: 0.01;
-  width: 0;
 }
 
 .fadeIn-enter.fadeIn-enter-active {
   opacity: 1;
-  width: 100px;
   transition: 700ms;
 }
 
 .fadeIn-leave {
   opacity: 1;
-  width: 100px;
 }
 
 .fadeIn-leave.fadeIn-leave-active {
   opacity: 0.01;
-  width: 0;
+  position: absolute;
+  top:1000px;
   transition: 700ms;
 }
 
-@import 'components/tiles.scss';
+input[type="range"] {
+  margin: 2px 20px 0px 0px;
+}
+
+.image-changer {
+  width:100%;
+  text-align: center;
+}
+
+.spin {
+  animation: spin .5s infinite linear;
+  display: inline-block;
+}
+
+@keyframes spin {
+  0%  {-webkit-transform: rotate(0deg);}
+  100% {-webkit-transform: rotate(360deg);}
+}
+
+@import 'components/board/Tile.scss';

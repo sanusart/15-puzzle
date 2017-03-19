@@ -1,0 +1,16 @@
+exports[`test Renders <Button /> with link 1`] = `
+<a
+  className="btn-start"
+  onClick={[Function]}
+  style={Object {}}>
+  Text
+</a>
+`;
+
+exports[`test Renders regular <Button /> 1`] = `
+<a
+  className="btn-start"
+  onClick={undefined}>
+  Text
+</a>
+`;

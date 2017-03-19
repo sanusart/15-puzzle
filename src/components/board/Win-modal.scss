@@ -1,0 +1,32 @@
+.won {
+  border: 1px solid #fff;
+  display: block;
+  color: #555;
+  padding: 20px;
+  text-align: center;
+  border-radius: 3px;
+  background: #fff;
+  box-shadow: 0 0 50px #555;
+  position: fixed;
+  width: 50%;
+  z-index: 6;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  input[type="text"] {
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	line-height: 31px;
+	margin: 10px;
+	padding: 0 5px;
+	font-size: 20px;
+	width:80%;
+  }
+  a {
+	&.close {
+	  position: absolute;
+	  top: 10px;
+	  right: 10px;
+	}
+  }
+}

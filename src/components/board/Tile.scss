@@ -1,4 +1,4 @@
-@import "../vars.scss";
+@import "../../vars.scss";
 
 .tile,
 .tile-empty {
@@ -31,7 +31,6 @@
 
 
 .tile {
-  background-image:url(/images/bg.jpg);
   background-size: 400% 400%;
 }
 

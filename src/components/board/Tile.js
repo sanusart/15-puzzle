@@ -15,6 +15,7 @@ export default class Tile extends Component {
         </div>
       );
     }
+    style.backgroundImage = `url('${this.props.puzzle.background}')`;
     return (
       <div style={style} data-tile={this.props.content} className={`tile tile-${this.props.content}`}>
         {this.props.puzzle.gameTileNumbers ? <span>{this.props.content}</span> : null}

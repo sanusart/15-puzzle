@@ -1,18 +1,21 @@
 import reducer from '../src/reducers/puzzle';
 import * as action from '../src/actions/puzzle';
 
+// Mock localStorage
+import '../__mocks__/localStorage';
+
 describe('puzzle reducer', () => {
 
   it('should match the initial state', () => {
     expect(
       reducer(undefined, {})
     ).toMatchObject({
-      "boardWidth": 320,
-      "gameInProgress": false,
-      "gameTileNumbers": false,
-      "gameWon": false,
-      "hallOfFame": []
-    })
+      boardWidth: 320,
+      gameInProgress: false,
+      gameTileNumbers: false,
+      gameWon: false,
+      hallOfFame: []
+    });
   });
 
   it('should handle GAME_START', () => {
@@ -21,7 +24,7 @@ describe('puzzle reducer', () => {
         type: action.GAME_START
       })
     ).toMatchObject({
-      "gameInProgress": true
+      gameInProgress: true
     });
   });
 
@@ -31,17 +34,36 @@ describe('puzzle reducer', () => {
         type: action.GAME_WON
       })
     ).toMatchObject({
-      "gameWon": true
+      gameWon: true
     });
   });
 
   it('should handle TOGGLE_TIME_NUMBERS', () => {
     expect(
-      reducer([], {
+      reducer(undefined, {
         type: action.TOGGLE_TIME_NUMBERS
       })
     ).toMatchObject({
-      "gameTileNumbers": true
+      gameTileNumbers: true
+    });
+  });
+
+  it('should handle ADD_TO_WALL_OF_FAME', () => {
+    expect(
+      reducer(undefined, {
+        type: action.ADD_TO_WALL_OF_FAME,
+        args: {
+          name: 'jest',
+          time: 1000,
+          moves: 100
+        }
+      })
+    ).toMatchObject({
+      hallOfFame: [{
+        name: 'jest',
+        time: 1000,
+        moves: 100
+      }]
     });
   });
 
@@ -52,7 +74,7 @@ describe('puzzle reducer', () => {
         size: 321
       })
     ).toMatchObject({
-      "boardWidth": 321
+      boardWidth: 321
     });
   });
 
