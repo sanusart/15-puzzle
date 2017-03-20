@@ -91,8 +91,8 @@ export default class Board extends Component {
   renderTiles() {
     return this.state.tiles.map((tile, key) => (
       tile === 0 ?
-        <Tile empty {...this.props} content={tile} key={key} /> :
-        <Tile {...this.props} content={tile} key={key} />
+        <Tile empty {...this.props} content={tile} key={`tile-${key}`} /> :
+        <Tile {...this.props} content={tile} key={`tile-${key}`} />
     ));
   }
 
@@ -278,7 +278,12 @@ export default class Board extends Component {
           transitionName="fadeIn"
           transitionEnterTimeout={700}
           transitionLeaveTimeout={700}>
-          {this.props.puzzle.gameWon ? <WinModal actions={this.props.actions} moves={this.state.moves} time={this.state.time} /> : null}
+          {this.props.puzzle.gameWon ?
+            <WinModal
+              actions={this.props.actions}
+              moves={this.state.moves}
+              time={this.state.time} />
+            : null}
         </ReactCSSTransitionGroup>
 
         <ReactTouchEvents onSwipe={this.handleSwipe.bind(this)}>
