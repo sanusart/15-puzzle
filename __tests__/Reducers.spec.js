@@ -41,7 +41,7 @@ describe('puzzle reducer', () => {
   it('should handle TOGGLE_TIME_NUMBERS', () => {
     expect(
       reducer(undefined, {
-        type: action.TOGGLE_TIME_NUMBERS
+        type: action.TOGGLE_TILE_NUMBERS
       })
     ).toMatchObject({
       gameTileNumbers: true
