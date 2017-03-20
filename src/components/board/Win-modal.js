@@ -14,6 +14,7 @@ export default class WinModal extends Component {
     this.addToHallOfFame = this.addToHallOfFame.bind(this);
     this.validation = this.validation.bind(this);
     this.userNameUpdate = this.userNameUpdate.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   validation() {
@@ -47,6 +48,10 @@ export default class WinModal extends Component {
     });
   }
 
+  closeModal() {
+    this.props.actions.gameWon();
+  }
+
   render() {
     return (
       <div className="won">
@@ -56,7 +61,7 @@ export default class WinModal extends Component {
           <div>Add your name to hall of fame:
             <input required type="text" onChange={this.userNameUpdate} />
             <Button className="btn-start" onClick={this.addToHallOfFame} text="Add" />
-            <Button className="btn-start close" onClick={this.isSolved} text="X" />
+            <Button className="btn-start close" onClick={this.closeModal} text="X" />
           </div>
           {this.state.validation ? <p className="text-danger">{this.state.validation}</p> : null}
         </div>
