@@ -13,6 +13,7 @@
     "consistent-return": 0,
     "comma-dangle": 0,
     "no-use-before-define": 0,
+    "no-plusplus": 0,
     "import/no-unresolved": [2, { "ignore": ["electron"] }],
     "import/no-named-default": 0,
     "import/no-extraneous-dependencies": 0,

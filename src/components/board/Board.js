@@ -127,7 +127,7 @@ export default class Board extends Component {
     });
   }
 
-  randomize() {
+  randomize(speed = 200) {
     let i = 0;
     const shuffler = window.setInterval(() => {
       const arr = [this.moveDown, this.moveUp, this.moveRight, this.moveLeft];
@@ -139,7 +139,7 @@ export default class Board extends Component {
         this.props.actions.gameStart();
       }
       i++;
-    }, 200);
+    }, speed);
   }
 
   changeImage() {

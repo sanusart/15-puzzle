@@ -39,7 +39,7 @@ describe('Board', () => {
   });
 
   it('Should be able to randomize tiles', async () => {
-    enzymeWrapper.instance().randomize();
+    enzymeWrapper.instance().randomize(10);
     await delay(1000);
     expect(enzymeWrapper.instance().state.tiles).not.toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0]);
   });
