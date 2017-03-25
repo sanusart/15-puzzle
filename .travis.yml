@@ -13,7 +13,7 @@ install:
   - npm install
 script:
   - npm run build-css
-  - npm test
+  - npm run test-with-coverage
 addons:
   code_climate:
     repo_token: $code_climate
