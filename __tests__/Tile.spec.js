@@ -19,4 +19,9 @@ describe('Tile', () => {
     ReactDOM.render(<Tile {...props} />, div);
   });
 
+    it('Empty tile renders without crashing', () => {
+        const div = document.createElement('div');
+        ReactDOM.render(<Tile empty {...props} />, div);
+    });
+
 });

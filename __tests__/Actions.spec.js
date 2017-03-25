@@ -26,4 +26,8 @@ describe('ACTIONS', () => {
     expect(actions.syncStorage()).toEqual({"type": "SYNC_STORAGE"});
   });
 
+  it('changeBackground action should be created', () => {
+      expect(actions.changeBackground()).toEqual({"type": "CHANGE_BACKGROUND_CALL"});
+  });
+
 });

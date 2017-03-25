@@ -1,16 +1,16 @@
-exports[`test Renders <Button /> with link 1`] = `
+exports[`test Snapshot for <Button /> should match 1`] = `
 <a
   className="btn-start"
-  onClick={[Function]}
-  style={Object {}}>
+  onClick={undefined}>
   Text
 </a>
 `;
 
-exports[`test Renders regular <Button /> 1`] = `
+exports[`test Snapshot for <Button /> with link should match 1`] = `
 <a
   className="btn-start"
-  onClick={undefined}>
+  onClick={[Function]}
+  style={Object {}}>
   Text
 </a>
 `;

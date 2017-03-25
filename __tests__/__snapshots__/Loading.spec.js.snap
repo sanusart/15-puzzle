@@ -1,0 +1,15 @@
+exports[`test Snapshot for <Loading /> should match 1`] = `
+<div>
+  l
+  <span
+    className="spin"
+    style={
+      Object {
+        "fontSize": "15px",
+      }
+    }>
+    ∅
+  </span>
+  ading
+</div>
+`;
