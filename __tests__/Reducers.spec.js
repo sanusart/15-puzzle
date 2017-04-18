@@ -5,7 +5,6 @@ import * as action from '../src/actions/puzzle';
 import '../__mocks__/localStorage';
 
 describe('puzzle reducer', () => {
-
   it('should match the initial state', () => {
     expect(
       reducer(undefined, {})
@@ -77,5 +76,4 @@ describe('puzzle reducer', () => {
       boardWidth: 321
     });
   });
-
 });

@@ -1,72 +1,109 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Button from '../Button';
+import * as actions from '../../actions/puzzle';
 
 import './Win-modal.css';
 
-export default class WinModal extends Component {
-
+export class WinModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
       validation: '',
-      userName: ''
+      userName: '',
     };
-    this.addToHallOfFame = this.addToHallOfFame.bind(this);
-    this.validation = this.validation.bind(this);
-    this.userNameUpdate = this.userNameUpdate.bind(this);
-    this.closeModal = this.closeModal.bind(this);
   }
 
-  validation() {
-    if (this.state.userName.length < 3) {
+  validation = () => {
+    const { userName } = this.state;
+
+    if (userName.length < 3) {
       this.setState({
-        validation: 'User name must be longer than 3 characters'
+        validation: 'User name must be longer than 3 characters',
       });
+
       return false;
-    } else if (this.state.userName.match(/[^a-zA-Z0-9]/)) {
+    } else if (userName.match(/[^a-zA-Z0-9]/)) {
       this.setState({
-        validation: 'Please only use a-z and 0-9 characters'
+        validation: 'Please only use a-z and 0-9 characters',
       });
+
       return false;
     }
+
     return true;
-  }
+  };
 
-  addToHallOfFame() {
+  addToHallOfFame = () => {
+    const { moves, time } = this.props;
+
     if (this.validation()) {
-      this.props.actions.addToWallOfFame({
+      this.props.addToWallOfFame({
         name: this.state.userName,
-        time: this.props.time,
-        moves: this.props.moves
+        time,
+        moves
       });
     }
-  }
+  };
 
-  userNameUpdate(ev) {
+  userNameUpdate = (event) => {
     this.setState({
-      userName: ev.currentTarget.value
+      userName: event.currentTarget.value,
     });
-  }
+  };
 
-  closeModal() {
-    this.props.actions.gameWon();
-  }
+  closeModal = () => {
+    this.props.gameWon();
+  };
 
   render() {
+    const { moves, time } = this.props;
+
     return (
       <div className="won">
         <h2>Solved!!!</h2>
-        <p>It took you {this.props.moves} moves and {this.props.time} seconds to solve it.</p>
+        <p>
+          It took you
+          {' '}
+          { moves }
+          {' '}
+          moves and
+          {' '}
+          { time }
+          {' '}
+          seconds to solve it.
+        </p>
         <div>
-          <div>Add your name to hall of fame:
-            <input required type="text" onChange={this.userNameUpdate} />
-            <Button className="btn-start" onClick={this.addToHallOfFame} text="Add" />
-            <Button className="btn-start close" onClick={this.closeModal} text="X" />
+          <div>
+            Add your name to hall of fame:
+            <input required type="text" onChange={ this.userNameUpdate } />
+            <Button
+              className="btn-start"
+              onClick={ this.addToHallOfFame }
+              text="Add"
+            />
+            <Button
+              className="btn-start close"
+              onClick={ this.closeModal }
+              text="X"
+            />
           </div>
-          {this.state.validation ? <p className="text-danger">{this.state.validation}</p> : null}
+          {this.state.validation && <p className="text-danger">{this.state.validation}</p>}
         </div>
       </div>
     );
   }
-
 }
+
+WinModal.propTypes = {
+  time: PropTypes.number,
+  moves: PropTypes.number,
+  gameWon: PropTypes.func,
+  addToWallOfFame: PropTypes.func
+};
+
+export default connect(null, {
+  gameWon: actions.gameWon,
+  addToWallOfFame: actions.addToWallOfFame
+})(WinModal);

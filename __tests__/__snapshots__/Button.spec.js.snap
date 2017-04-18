@@ -1,9 +1,10 @@
 exports[`test Snapshot for <Button /> should match 1`] = `
-<a
+<div
   className="btn-start"
-  onClick={undefined}>
+  onClick={undefined}
+  role="button">
   Text
-</a>
+</div>
 `;
 
 exports[`test Snapshot for <Button /> with link should match 1`] = `

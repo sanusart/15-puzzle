@@ -1,6 +1,6 @@
 {
   "parser": "babel-eslint",
-  "extends": "airbnb-base",
+  "extends": "airbnb",
   "env": {
     "browser": true,
     "mocha": true,
@@ -22,18 +22,15 @@
     "react/prefer-stateless-function": 2,
     "react/jsx-uses-react": 1,
     "react/jsx-uses-vars": 1,
-    "react/react-in-jsx-scope": 1
+    "react/react-in-jsx-scope": 1,
+    "react/require-default-props": 0,
+    "react/jsx-curly-spacing": [2, "always"]
   },
   "plugins": [
     "import",
     "react"
   ],
   "settings": {
-    "import/extensions": [".js"],
-    "import/resolver": {
-      "webpack": {
-        "config": "webpack.config.eslint.js"
-      }
-    }
+    "import/extensions": [".js"]
   }
 }

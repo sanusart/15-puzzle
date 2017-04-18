@@ -1,35 +1,20 @@
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import GitgubRibbon from './github-ribbon';
-import * as puzzleActions from '../actions/puzzle';
+import React from 'react';
+import PropTypes from 'prop-types';
+import GitHubRibbon from './github-ribbon';
 
-export class Puzzle extends Component {
+const Puzzle = props => (
+  <div className="Puzzle">
+    <GitHubRibbon
+      url="https://github.com/sanusart/15-puzzle"
+      fill="tomato"
+      color="#D2D2F7"
+    />
+    { props.children }
+  </div>
+);
 
-  render() {
-    return (
-      <div className="Puzzle">
-        <GitgubRibbon
-          url="https://github.com/sanusart/15-puzzle"
-          fill="tomato"
-          color="#D2D2F7"
-        />
-        {React.cloneElement(this.props.children, {...this.props})}
-      </div>
-    );
-  }
-}
+Puzzle.propTypes = {
+  children: PropTypes.node
+};
 
-function mapStateToProps(state) {
-  return {
-    puzzle: state.puzzle
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(puzzleActions, dispatch)
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Puzzle);
+export default Puzzle;

@@ -40,3 +40,5 @@ uilog.txt
 
 build
 src/**/*.css
+.storybook/
+src/stories/

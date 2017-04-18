@@ -1,6 +1,6 @@
 import pkg from '../package.json';
 
-module.exports = {
+const props = {
   puzzle: {
     app: {
       name: pkg.name,
@@ -11,5 +11,10 @@ module.exports = {
     gameInProgress: false,
     hallOfFame: [],
     boardWidth: 320
-  }
+  },
+  changeBackground: jest.fn(() => {
+    return {};
+  })
 };
+
+module.exports = props;

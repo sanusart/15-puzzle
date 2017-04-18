@@ -1,26 +1,41 @@
-import React, {Component} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-export default class Tile extends Component {
-
-  render() {
-    let style = {
-      width: this.props.puzzle.boardWidth/4 + 'px',
-      height: this.props.puzzle.boardWidth/4 + 'px',
-      lineHeight: this.props.puzzle.boardWidth/4 + 'px'
-    };
-    if (this.props.empty) {
-      return (
-        <div style={style} data-tile={this.props.content} className="tile-empty">
-          &nbsp;
-        </div>
-      );
-    }
-    style.backgroundImage = `url('${this.props.puzzle.background}')`;
+export const Tile = ({ boardWidth, empty, background, content, gameTileNumbers }) => {
+  const style = {
+    width: `${boardWidth / 4}px`,
+    height: `${boardWidth / 4}px`,
+    lineHeight: `${boardWidth / 4}px`,
+  };
+  if (empty) {
     return (
-      <div style={style} data-tile={this.props.content} className={`tile tile-${this.props.content}`}>
-        {this.props.puzzle.gameTileNumbers ? <span>{this.props.content}</span> : null}
-      </div>
+      <div style={ style } className="tile-empty" />
     );
   }
+  style.backgroundImage = `url('${background}')`;
+  return (
+    <div
+      style={ style }
+      className={ `tile tile-${content}` }
+    >
+      {gameTileNumbers && <span>{content}</span>}
+    </div>
+  );
+};
 
-}
+Tile.propTypes = {
+  boardWidth: PropTypes.number,
+  empty: PropTypes.bool,
+  content: PropTypes.number,
+  background: PropTypes.string,
+  gameTileNumbers: PropTypes.bool
+};
+
+const mapStateToProps = state => ({
+  boardWidth: state.puzzle.boardWidth,
+  background: state.puzzle.background,
+  gameTileNumbers: state.puzzle.gameTileNumbers
+});
+
+export default connect(mapStateToProps, {})(Tile);

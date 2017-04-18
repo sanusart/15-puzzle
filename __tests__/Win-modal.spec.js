@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import WinModal from '../src/components/board/Win-modal';
+import { WinModal } from '../src/components/board/Win-modal';
 
 function setup() {
   const enzymeWrapper = mount(<WinModal moves="42" time="4200" />);
@@ -15,7 +15,6 @@ function setup() {
 }
 
 describe('Win-modal', () => {
-
   const { enzymeWrapper, input, btn } = setup();
 
   it('should have heading', () => {
@@ -44,5 +43,4 @@ describe('Win-modal', () => {
     btn.simulate('click');
     expect(enzymeWrapper.instance().state.validation).toEqual('Please only use a-z and 0-9 characters');
   });
-
 });

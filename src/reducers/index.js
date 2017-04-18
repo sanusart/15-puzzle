@@ -1,6 +1,7 @@
+import { combineReducers } from 'redux';
 import puzzle from './puzzle';
-import {combineReducers} from 'redux';
+
 const rootReducer = combineReducers({
-  puzzle
+  puzzle,
 });
 export default rootReducer;
